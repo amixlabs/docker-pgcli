@@ -30,7 +30,7 @@ Using `docker-compose.yml`:
 version: '2'
 services:
   pgcli:
-    image: pgcli
+    image: amixlabs/pgcli
     command: postgresql://youruser:yourpass@pg/yourdb
     stdin_open: true
     tty: true
