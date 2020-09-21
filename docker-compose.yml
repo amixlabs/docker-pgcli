@@ -1,0 +1,16 @@
+version: '2'
+services:
+  pgcli:
+    image: pgcli
+    command: postgresql://youruser:yourpass@pg/yourdb
+    stdin_open: true
+    tty: true
+    links:
+    - pg
+
+  pg:
+    image: postgres:12
+    environment:
+    - POSTGRES_USER=youruser
+    - POSTGRES_PASSWORD=yourpass
+    - POSTGRES_DB=yourdb

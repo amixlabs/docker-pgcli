@@ -1,0 +1,12 @@
+language: bash
+services: docker
+
+before_script:
+- docker build -t amixlabs/pgcli:latest .
+
+script:
+- docker run --rm -it amixlabs/pgcli --version
+
+after_success:
+- docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+- docker push amixlabs/pgcli
